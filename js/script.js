@@ -57,6 +57,10 @@ createApp({
             }else{
                 this.currentSlide = this.slides.length -1;
             }
+        },
+        changeSlide(clickedSlide){
+            this.currentSlide = clickedSlide;
+
         }
     }
 

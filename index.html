@@ -29,14 +29,15 @@
                     <div @click="showNext" class="next"></div>
 
 
-
                     <div 
                     class="thumb"
-                    v-for="(country, index) in slides.country[index]"
-                    :class="currentSlide === index ? 'active' : '' "
+                    v-for="(country, index) in slides"
+                    :class="currentSlide === index ? 'active' : '' " 
+                    @click="changeSlide(index)"
                     >
                     
-                        <img src="country.image">
+                        <img :src="country.image" :alt="country.title" >
+                    
                     </div>
                     
                 </div>
