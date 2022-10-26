@@ -17,34 +17,28 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img :src="slides[country].image" :alt="slides[country].title" />
+                    <img :src="slides[currentSlide].image" :alt="slides[currentSlide].title" />
                     <div class="text">
-                        <h3>{{ slides[country].title }}</h3>
-                        <p>{{  slides[country].text }}</p>
+                        <h3>{{slides[currentSlide].title}}</h3>
+                        <p>{{slides[currentSlide].text}}</p>
                     </div>
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
+                    <div @click="showPrev" class="prev"></div>
+                    <div @click="showNext" class="next"></div>
 
+
+
+                    <div 
+                    class="thumb"
+                    v-for="(country, index) in slides.country[index]"
+                    :class="currentSlide === index ? 'active' : '' "
+                    >
                     
-
-                    <div class="thumb active">
-                        <img src="img/01.jpg" alt="Svezia"/>
+                        <img src="country.image">
                     </div>
-                    <div class="thumb">
-                        <img src="img/02.jpg" alt="Svizzera" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.jpg" alt="Gran Bretagna" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.jpg" alt="Germania" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.jpg" alt="Paradise" />
-                    </div>
+                    
                 </div>
 
             </div>

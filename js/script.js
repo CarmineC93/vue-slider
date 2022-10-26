@@ -1,5 +1,6 @@
+/*
 Descrizione:
-/*Partendo dal markup della versione svolta in js plain, rifare lo slider ma questa volta usando Vue.
+Partendo dal markup della versione svolta in js plain, rifare lo slider ma questa volta usando Vue.
 Bonus:
 1- al click su una thumb, visualizzare in grande l'immagine corrispondente
 2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
@@ -38,8 +39,24 @@ createApp({
                 }
             ],
 
-            image : 0,
-            
+            currentSlide : 0
+
+        };
+    },
+    methods: {
+        showNext () {
+            if(this.currentSlide < this.slides.length -1){
+                this.currentSlide ++;
+            }else{
+                this.currentSlide = 0;
+            } 
+        },
+        showPrev (){
+            if(this.currentSlide >0){
+                this.currentSlide--;
+            }else{
+                this.currentSlide = this.slides.length -1;
+            }
         }
     }
 
