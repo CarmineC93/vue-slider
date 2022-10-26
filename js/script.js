@@ -44,25 +44,33 @@ createApp({
         };
     },
     methods: {
-        showNext () {
-            if(this.currentSlide < this.slides.length -1){
-                this.currentSlide ++;
-            }else{
-                this.currentSlide = 0;
-            } 
-        },
-        showPrev (){
-            if(this.currentSlide >0){
-                this.currentSlide--;
-            }else{
-                this.currentSlide = this.slides.length -1;
-            }
-        },
-        changeSlide(clickedSlide){
-            this.currentSlide = clickedSlide;
+            showNext () {
+                if(this.currentSlide < this.slides.length -1){
+                    this.currentSlide ++;
+                }else{
+                    this.currentSlide = 0;
+                } 
+            },
+            showPrev (){
+                if(this.currentSlide >0){
+                    this.currentSlide--;
+                }else{
+                    this.currentSlide = this.slides.length -1;
+                }
+            },
+            changeSlide(clickedSlide){
+                this.currentSlide = clickedSlide;
 
-        }
-    }
+            },
+    },
+
+    created : function(){
+        setInterval( 
+            this.showNext
+        , 3000)
+    } 
+        
+    
 
 }).mount("#app");
 
