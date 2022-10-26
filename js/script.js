@@ -39,7 +39,8 @@ createApp({
                 }
             ],
 
-            currentSlide : 0
+            currentSlide : 0,
+            hover : "false"
 
         };
     },
@@ -60,14 +61,18 @@ createApp({
             },
             changeSlide(clickedSlide){
                 this.currentSlide = clickedSlide;
-
             },
+            changeState(){
+                this.hover = !this.hover;
+            }
     },
 
     created : function(){
-        setInterval( 
-            this.showNext
-        , 3000)
+        if(this.hover === false){
+            setInterval( 
+                this.showNext
+            , 3000)
+        }
     } 
         
     
