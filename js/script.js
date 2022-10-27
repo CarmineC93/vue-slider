@@ -40,8 +40,7 @@ createApp({
             ],
 
             currentSlide : 0,
-            hover : "false"
-
+            autoPlay: null //poi ci andranno numeri, quelli del log del setInterval
         };
     },
     methods: {
@@ -59,24 +58,25 @@ createApp({
                     this.currentSlide = this.slides.length -1;
                 }
             },
-            changeSlide(clickedSlide){
+            changeSlide(clickedSlide){  //potevo farlo anche nel @click currentSlide = index
                 this.currentSlide = clickedSlide;
             },
-            changeState(){
-                this.hover = !this.hover;
+            stopAutoPlay(){
+                clearInterval(this.autoPlay)
+                this.autoPlay = null
+            },
+            startAutoPlay(){
+                if(this.autoPlay === null){
+                    this.autoPlay = setInterval( () => {
+                        this.showNext
+                    }, 3000)
+                }
             }
     },
 
-    created : function(){
-        if(this.hover === false){
-            setInterval( 
-                this.showNext
-            , 3000)
-        }
-    } 
-        
-    
-
+    created(){
+        this.startAutoPlay(); 
+    }
 }).mount("#app");
 
 

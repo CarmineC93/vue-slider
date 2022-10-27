@@ -15,7 +15,10 @@
 
         <div class="container" >
             <div 
-                @mouseover="changeState()" 
+                 tabindex="0"
+                 @mouseover="stopAutoPlay" 
+                 @mouseleave="startAutoPlay" 
+
                 class="slider-wrapper" tabindex="0">
 
                 <div class="item">
